@@ -61,7 +61,9 @@ def train_gmm(opt, train_loader, model, board):
     scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda = lambda step: 1.0 -
             max(0, step - opt.keep_step) / float(opt.decay_step + 1))
 
-    for step in range(opt.keep_step + opt.decay_step):
+    # for step in range(opt.keep_step + opt.decay_step):
+    # change steps limit
+    for step in range(3000):
         iter_start_time = time.time()
         inputs = train_loader.next_batch()
         
