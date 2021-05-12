@@ -125,7 +125,7 @@ class CPDataset(data.Dataset):
         parse_shape = parse_shape.resize((self.fine_width, self.fine_height),Image.BILINEAR)
 
         # FIX 
-        self.transform = transforms.Compose([ transforms.ToTensor(), transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
+        self.transform = transforms.Compose([transforms.ToTensor(),transforms.Normalize((0.5,), (0.5,))])
         
         ## done
         im_shape = self.transform(parse_shape) # [-1,1]
