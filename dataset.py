@@ -124,6 +124,9 @@ class CPDataset(data.Dataset):
         parse_shape = parse_shape.resize((self.fine_width//16, self.fine_height//16),Image.BILINEAR)
         parse_shape = parse_shape.resize((self.fine_width, self.fine_height),Image.BILINEAR)
 
+        # FIX 
+        self.transform = transforms.Compose([ transforms.ToTensor(), transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
+        
         ## done
         im_shape = self.transform(parse_shape) # [-1,1]
         parse_cloth_mask = torch.from_numpy(parse_cloth) # [0,1]
