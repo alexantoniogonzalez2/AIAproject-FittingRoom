@@ -122,7 +122,9 @@ def train_cycleTryOn(opt, train_loader, model, board):
 
 
 
-    for step in range(opt.keep_step + opt.decay_step):
+    # for step in range(opt.keep_step + opt.decay_step):
+    # change steps limit
+    for step in range(1000):
         iter_start_time = time.time()
         
         inputs = train_loader.next_batch()
